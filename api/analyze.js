@@ -272,7 +272,7 @@ Do not make an admission prediction.
                 },
 
                 body: JSON.stringify({
-                    model: "gpt-5.6-mini",
+                    model: "gpt-5.6-luna",
 
                     input: [
                         {
