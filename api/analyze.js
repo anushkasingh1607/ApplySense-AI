@@ -7,11 +7,13 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.OPENAI_API_KEY;
 
-    if (!apiKey) {
-        return res.status(500).json({
-            error: "AI service is not configured."
-        });
-    }
+   return res.status(500).json({
+    error: `AI service error (HTTP ${response.status}): ${
+        typeof safeDetails === "string"
+            ? safeDetails
+            : safeDetails?.message || "Unknown OpenAI error"
+    }`
+});
 
     try {
         const {
