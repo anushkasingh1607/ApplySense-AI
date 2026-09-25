@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ApplySense AI — Application Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="#top" class="logo">
+            Apply<span>Sense</span> AI
+        </a>
+
+        <nav>
+
+            <a href="#workspace">
+                Analyzer
+            </a>
+
+            <a href="#results">
+                Results
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN APPLICATION
+    ========================== -->
+
+    <main id="top">
+
+
+        <!-- =========================
+             WORKSPACE
+        ========================== -->
+
+        <section id="workspace">
+
+            <div class="workspace-header">
+
+                <div class="workspace-label">
+                    APPLICATION ANALYZER
+                </div>
+
+                <h1>
+                    Let's understand
+                    <span>your application.</span>
+                </h1>
+
+                <p>
+                    Tell us about your academic goal, then provide
+                    your CV and personal statement. ApplySense AI
+                    will analyze the information and create
+                    structured application insights.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PROGRESS
+            ========================== -->
+
+            <div class="progress-container">
+
+                <div class="progress-step active">
+
+                    <div class="progress-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Your Goal
+                        </strong>
+
+                        <small>
+                            Academic target
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-line"></div>
+
+
+                <div class="progress-step">
+
+                    <div class="progress-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Your Documents
+                        </strong>
+
+                        <small>
+                            CV & statement
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-line"></div>
+
+
+                <div class="progress-step">
+
+                    <div class="progress-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Analysis
+                        </strong>
+
+                        <small>
+                            Application insights
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 APPLICATION FORM
+            ========================== -->
+
+            <form id="applicationForm">
+
+
+                <!-- =====================
+                     SECTION 1
+                ====================== -->
+
+                <section class="form-section">
+
+                    <div class="section-number">
+                        01
+                    </div>
+
+                    <div class="form-section-content">
+
+                        <div class="form-heading">
+
+                            <span>
+                                YOUR ACADEMIC GOAL
+                            </span>
+
+                            <h2>
+                                What are you applying for?
+                            </h2>
+
+                            <p>
+                                This gives the analysis engine context
+                                for evaluating your application.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="field">
+                                    Intended field
+                                </label>
+
+                                <select
+                                    id="field"
+                                    name="field"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select a field
+                                    </option>
+
+                                    <option value="Computer Science">
+                                        Computer Science
+                                    </option>
+
+                                    <option value="Artificial Intelligence">
+                                        Artificial Intelligence
+                                    </option>
+
+                                    <option value="Data Science">
+                                        Data Science
+                                    </option>
+
+                                    <option value="Engineering">
+                                        Engineering
+                                    </option>
+
+                                    <option value="Mathematics">
+                                        Mathematics
+                                    </option>
+
+                                    <option value="Business">
+                                        Business
+                                    </option>
+
+                                    <option value="Economics">
+                                        Economics
+                                    </option>
+
+                                    <option value="Medicine">
+                                        Medicine
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="level">
+                                    Academic level
+                                </label>
+
+                                <select
+                                    id="level"
+                                    name="level"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select your level
+                                    </option>
+
+                                    <option value="Undergraduate">
+                                        Undergraduate / Bachelor's
+                                    </option>
+
+                                    <option value="Graduate">
+                                        Graduate / Master's
+                                    </option>
+
+                                    <option value="PhD">
+                                        PhD
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="country">
+                                    Target country / region
+                                </label>
+
+                                <select
+                                    id="country"
+                                    name="country"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select a country / region
+                                    </option>
+
+                                    <option value="France">
+                                        France
+                                    </option>
+
+                                    <option value="Germany">
+                                        Germany
+                                    </option>
+
+                                    <option value="Italy">
+                                        Italy
+                                    </option>
+
+                                    <option value="Netherlands">
+                                        Netherlands
+                                    </option>
+
+                                    <option value="United Kingdom">
+                                        United Kingdom
+                                    </option>
+
+                                    <option value="United States">
+                                        United States
+                                    </option>
+
+                                    <option value="Canada">
+                                        Canada
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="university">
+
+                                    Target university
+
+                                    <span class="optional">
+                                        Optional
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="university"
+                                    name="university"
+                                    placeholder="e.g. Université PSL"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     SECTION 2 — CV
+                ====================== -->
+
+                <section class="form-section">
+
+                    <div class="section-number">
+                        02
+                    </div>
+
+                    <div class="form-section-content">
+
+                        <div class="form-heading">
+
+                            <span>
+                                YOUR CV
+                            </span>
+
+                            <h2>
+                                Tell us about your experience.
+                            </h2>
+
+                            <p>
+                                Paste your CV below. The analysis engine
+                                will identify education, skills, projects,
+                                achievements and experience.
+                            </p>
+
+                        </div>
+
+
+                        <div class="document-box">
+
+                            <div class="document-header">
+
+                                <div>
+
+                                    <strong>
+                                        CV / Resume
+                                    </strong>
+
+                                    <small>
+                                        Paste your CV text
+                                    </small>
+
+                                </div>
+
+                                <span class="document-type">
+                                    CV
+                                </span>
+
+                            </div>
+
+
+                            <textarea
+                                id="cvText"
+                                name="cvText"
+                                placeholder="Paste your CV here...
+
+Example:
+
+Education
+Class 12 — CBSE
+Physics, Chemistry, Mathematics
+
+Projects
+StudyIQ — Adaptive study analytics application
+French Vocabulary Quiz — Interactive language learning application
+
+Skills
+HTML, CSS, JavaScript
+
+Achievements
+International Youth Math Challenge
+
+Experience
+..."
+                                required
+                            ></textarea>
+
+
+                            <div class="character-count">
+
+                                <span>
+                                    Your text is processed locally
+                                    in this prototype.
+                                </span>
+
+                                <span id="cvCount">
+                                    0 characters
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     SECTION 3 — STATEMENT
+                ====================== -->
+
+                <section class="form-section">
+
+                    <div class="section-number">
+                        03
+                    </div>
+
+                    <div class="form-section-content">
+
+                        <div class="form-heading">
+
+                            <span>
+                                PERSONAL STATEMENT
+                            </span>
+
+                            <h2>
+                                What's your story?
+                            </h2>
+
+                            <p>
+                                Paste your personal statement.
+                                The engine will examine its structure,
+                                evidence, specificity and connection
+                                to your chosen field.
+                            </p>
+
+                        </div>
+
+
+                        <div class="document-box">
+
+                            <div class="document-header">
+
+                                <div>
+
+                                    <strong>
+                                        Personal Statement
+                                    </strong>
+
+                                    <small>
+                                        Paste your statement
+                                    </small>
+
+                                </div>
+
+                                <span class="document-type">
+                                    PS
+                                </span>
+
+                            </div>
+
+
+                            <textarea
+                                id="statementText"
+                                name="statementText"
+                                placeholder="Paste your personal statement here...
+
+Example:
+
+My interest in computer science began when...
+
+During my studies, I developed...
+
+This experience made me interested in...
+
+I hope to study..."
+                                required
+                            ></textarea>
+
+
+                            <div class="character-count">
+
+                                <span>
+                                    Specific experiences are more
+                                    useful than generic claims.
+                                </span>
+
+                                <span id="statementCount">
+                                    0 characters
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     ANALYZE BUTTON
+                ====================== -->
+
+                <section class="analyze-section">
+
+                    <div class="analyze-content">
+
+                        <div class="analyze-icon">
+                            ✦
+                        </div>
+
+                        <h2>
+                            Ready to understand
+                            your application?
+                        </h2>
+
+                        <p>
+                            ApplySense AI will compare your documents
+                            with your academic goal and generate
+                            structured feedback.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="analyzeButton"
+                    >
+
+                        Analyze My Application
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </section>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RESULTS DASHBOARD
+        =================================================== -->
+
+        <section
+            id="results"
+            class="results-section hidden"
+        >
+
+
+            <!-- =========================
+                 RESULTS HEADER
+            ========================== -->
+
+            <div class="results-header">
+
+                <div>
+
+                    <div class="workspace-label">
+                        APPLICATION ANALYSIS
+                    </div>
+
+                    <h1>
+                        Your application,
+                        <span>decoded.</span>
+                    </h1>
+
+                    <p id="resultsSummary">
+                        Here is what your application currently
+                        communicates.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="newAnalysisButton"
+                    class="secondary-button"
+                >
+                    ← New Analysis
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PROFILE CONTEXT
+            ========================== -->
+
+            <div class="context-card">
+
+                <div>
+
+                    <span>
+                        TARGET FIELD
+                    </span>
+
+                    <strong id="resultField">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ACADEMIC LEVEL
+                    </span>
+
+                    <strong id="resultLevel">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        COUNTRY
+                    </span>
+
+                    <strong id="resultCountry">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        UNIVERSITY
+                    </span>
+
+                    <strong id="resultUniversity">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ANALYSIS OVERVIEW
+            ========================== -->
+
+            <div class="dashboard-heading">
+
+                <span>
+                    OVERVIEW
+                </span>
+
+                <h2>
+                    Application signals
+                </h2>
+
+                <p>
+                    These indicators describe what was detected
+                    in the material you provided.
+                </p>
+
+            </div>
+
+
+            <div class="signal-grid">
+
+
+                <!-- CV -->
+
+                <div class="signal-card">
+
+                    <div class="signal-top">
+
+                        <div class="signal-icon">
+                            CV
+                        </div>
+
+                        <span class="signal-label">
+                            CV
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="signal-value"
+                        id="cvSignal"
+                    >
+                        —
+                    </div>
+
+                    <p id="cvSignalText">
+                        Waiting for analysis.
+                    </p>
+
+                    <div class="signal-bar">
+
+                        <div
+                            id="cvBar"
+                            class="signal-bar-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- STATEMENT -->
+
+                <div class="signal-card">
+
+                    <div class="signal-top">
+
+                        <div class="signal-icon">
+                            PS
+                        </div>
+
+                        <span class="signal-label">
+                            STATEMENT
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="signal-value"
+                        id="statementSignal"
+                    >
+                        —
+                    </div>
+
+                    <p id="statementSignalText">
+                        Waiting for analysis.
+                    </p>
+
+                    <div class="signal-bar">
+
+                        <div
+                            id="statementBar"
+                            class="signal-bar-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONSISTENCY -->
+
+                <div class="signal-card">
+
+                    <div class="signal-top">
+
+                        <div class="signal-icon">
+                            ↔
+                        </div>
+
+                        <span class="signal-label">
+                            CONSISTENCY
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="signal-value"
+                        id="consistencySignal"
+                    >
+                        —
+                    </div>
+
+                    <p id="consistencySignalText">
+                        Waiting for analysis.
+                    </p>
+
+                    <div class="signal-bar">
+
+                        <div
+                            id="consistencyBar"
+                            class="signal-bar-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ALIGNMENT -->
+
+                <div class="signal-card">
+
+                    <div class="signal-top">
+
+                        <div class="signal-icon">
+                            ◎
+                        </div>
+
+                        <span class="signal-label">
+                            ALIGNMENT
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="signal-value"
+                        id="alignmentSignal"
+                    >
+                        —
+                    </div>
+
+                    <p id="alignmentSignalText">
+                        Waiting for analysis.
+                    </p>
+
+                    <div class="signal-bar">
+
+                        <div
+                            id="alignmentBar"
+                            class="signal-bar-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CV ANALYSIS
+            ========================== -->
+
+            <div class="analysis-grid">
+
+
+                <div class="analysis-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span>
+                                CV ANALYSIS
+                            </span>
+
+                            <h2>
+                                What your CV communicates
+                            </h2>
+
+                        </div>
+
+                        <div class="panel-badge">
+                            Detected
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-list">
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Skills detected
+                                </strong>
+
+                                <small>
+                                    Technical and academic
+                                    skills found in your CV.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="skillsCount"
+                                class="metric-value"
+                            >
+                                0
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Projects
+                                </strong>
+
+                                <small>
+                                    Projects or portfolio work
+                                    identified.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="projectsCount"
+                                class="metric-value"
+                            >
+                                0
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Achievements
+                                </strong>
+
+                                <small>
+                                    Awards, competitions or
+                                    accomplishments detected.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="achievementsCount"
+                                class="metric-value"
+                            >
+                                0
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Education
+                                </strong>
+
+                                <small>
+                                    Education-related information
+                                    identified.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="educationStatus"
+                                class="metric-value"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     STATEMENT ANALYSIS
+                ========================== -->
+
+                <div class="analysis-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span>
+                                STATEMENT ANALYSIS
+                            </span>
+
+                            <h2>
+                                How your story reads
+                            </h2>
+
+                        </div>
+
+                        <div class="panel-badge">
+                            Detected
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-list">
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Word count
+                                </strong>
+
+                                <small>
+                                    Total words detected.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="wordCount"
+                                class="metric-value"
+                            >
+                                0
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Specificity
+                                </strong>
+
+                                <small>
+                                    Presence of concrete
+                                    experiences and examples.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="specificityStatus"
+                                class="metric-value"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Evidence
+                                </strong>
+
+                                <small>
+                                    Examples supporting
+                                    your claims.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="evidenceStatus"
+                                class="metric-value"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="metric-row">
+
+                            <div>
+
+                                <strong>
+                                    Generic language
+                                </strong>
+
+                                <small>
+                                    Common phrases that may
+                                    lack personal detail.
+                                </small>
+
+                            </div>
+
+                            <strong
+                                id="genericCount"
+                                class="metric-value"
+                            >
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONSISTENCY
+            ========================== -->
+
+            <div class="full-analysis-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span>
+                            DOCUMENT CONSISTENCY
+                        </span>
+
+                        <h2>
+                            Does your application tell
+                            the same story?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div id="consistencyContent"
+                     class="insight-list">
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COURSE ALIGNMENT
+            ========================== -->
+
+            <div class="full-analysis-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span>
+                            COURSE ALIGNMENT
+                        </span>
+
+                        <h2>
+                            Evidence related to your goal
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="alignmentContent"
+                    class="alignment-content"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RECOMMENDATIONS
+            ========================== -->
+
+            <div class="full-analysis-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span>
+                            NEXT STEPS
+                        </span>
+
+                        <h2>
+                            What you could strengthen
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="recommendationContent"
+                    class="recommendation-grid"
+                >
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="logo">
+            Apply<span>Sense</span> AI
+        </div>
+
+        <p>
+            Your application, understood better.
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
