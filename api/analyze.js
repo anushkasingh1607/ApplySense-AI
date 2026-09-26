@@ -11,10 +11,10 @@ export default async function handler(req, res) {
     }
 
     // =========================================
-    // API KEY CHECK
+    // GEMINI API KEY
     // =========================================
 
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
         return res.status(500).json({
@@ -55,10 +55,7 @@ export default async function handler(req, res) {
             });
         }
 
-        if (
-            !personalStatement ||
-            !String(personalStatement).trim()
-        ) {
+        if (!personalStatement || !String(personalStatement).trim()) {
             return res.status(400).json({
                 success: false,
                 error: "Personal statement is required."
@@ -66,7 +63,7 @@ export default async function handler(req, res) {
         }
 
         // =========================================
-        // REVIEWER INSTRUCTIONS
+        // SYSTEM INSTRUCTIONS
         // =========================================
 
         const systemPrompt = `
@@ -87,7 +84,7 @@ IMPORTANT RULES:
    - reasonable interpretation
    - missing evidence
    - potential weakness
-6. If something is not found, use wording such as "NOT DETECTED" or "not demonstrated in the submitted material" rather than claiming the student definitely lacks it.
+6. If something is not found, say "NOT DETECTED" or "not demonstrated in the submitted material" rather than claiming the student definitely lacks it.
 7. Identify generic statements when they are unsupported by specific evidence.
 8. Explain why important weaknesses matter.
 9. Give practical actions for improving weaknesses.
@@ -157,9 +154,9 @@ Return ONLY valid JSON using exactly this structure:
   ]
 }
 
-The recommendations should be specific and actionable.
+Recommendations should be specific and actionable.
 
-Use priorities such as:
+Use priorities:
 "High"
 "Medium"
 "Low"
@@ -168,7 +165,7 @@ Do not include markdown fences around the JSON.
 `;
 
         // =========================================
-        // USER MATERIAL
+        // USER APPLICATION
         // =========================================
 
         const userPrompt = `
@@ -194,44 +191,49 @@ Return the requested JSON analysis.
 `;
 
         // =========================================
-        // OPENAI REQUEST
+        // GEMINI API REQUEST
         // =========================================
 
         const response = await fetch(
-            "https://api.openai.com/v1/responses",
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
             {
                 method: "POST",
 
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
+                    "x-goog-api-key": apiKey
                 },
 
                 body: JSON.stringify({
-                    model: "gpt-5.6-luna",
+                    systemInstruction: {
+                        parts: [
+                            {
+                                text: systemPrompt
+                            }
+                        ]
+                    },
 
-                    input: [
-                        {
-                            role: "system",
-                            content: systemPrompt
-                        },
+                    contents: [
                         {
                             role: "user",
-                            content: userPrompt
+                            parts: [
+                                {
+                                    text: userPrompt
+                                }
+                            ]
                         }
                     ],
 
-                    text: {
-                        format: {
-                            type: "json_object"
-                        }
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        temperature: 0.3
                     }
                 })
             }
         );
 
         // =========================================
-        // HANDLE OPENAI HTTP ERRORS
+        // HANDLE GEMINI API ERROR
         // =========================================
 
         if (!response.ok) {
@@ -245,11 +247,10 @@ Return the requested JSON analysis.
 
             const message =
                 errorDetails?.error?.message ||
-                errorDetails?.message ||
-                "Unknown OpenAI API error.";
+                "Unknown Gemini API error.";
 
             console.error(
-                "OpenAI API error:",
+                "Gemini API error:",
                 response.status,
                 message
             );
@@ -261,39 +262,20 @@ Return the requested JSON analysis.
         }
 
         // =========================================
-        // READ OPENAI RESPONSE
+        // READ GEMINI RESPONSE
         // =========================================
 
         const data = await response.json();
 
-        let outputText = data.output_text;
-
-        // Fallback extraction in case output_text is unavailable.
-        if (!outputText && Array.isArray(data.output)) {
-            for (const item of data.output) {
-                if (!Array.isArray(item.content)) {
-                    continue;
-                }
-
-                for (const content of item.content) {
-                    if (
-                        content.type === "output_text" &&
-                        typeof content.text === "string"
-                    ) {
-                        outputText = content.text;
-                        break;
-                    }
-                }
-
-                if (outputText) {
-                    break;
-                }
-            }
-        }
+        const outputText =
+            data?.candidates?.[0]?.content?.parts
+                ?.map(part => part.text || "")
+                .join("")
+                .trim();
 
         if (!outputText) {
             console.error(
-                "OpenAI response did not contain output text:",
+                "Gemini returned no usable text:",
                 JSON.stringify(data)
             );
 
@@ -304,7 +286,7 @@ Return the requested JSON analysis.
         }
 
         // =========================================
-        // PARSE AI JSON
+        // PARSE JSON
         // =========================================
 
         let analysis;
@@ -313,12 +295,12 @@ Return the requested JSON analysis.
             analysis = JSON.parse(outputText);
         } catch (parseError) {
             console.error(
-                "Could not parse AI JSON:",
+                "Could not parse Gemini JSON:",
                 parseError
             );
 
             console.error(
-                "Raw AI output:",
+                "Raw Gemini output:",
                 outputText
             );
 
@@ -338,10 +320,6 @@ Return the requested JSON analysis.
         });
 
     } catch (error) {
-        // =========================================
-        // UNEXPECTED SERVER ERROR
-        // =========================================
-
         console.error(
             "ApplySense AI backend error:",
             error
